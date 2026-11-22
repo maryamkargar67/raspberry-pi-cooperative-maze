@@ -1,0 +1,32 @@
+section,device/module,module/controller pin,raspberry pi physical pin,BCM GPIO,signal,function,comment
+Master controller buttons,Master Controller,Pin 29,Pin 29,GPIO5,B7 / joystick left button,UP movement,Active-low GPIO input with internal pull-up.
+Master controller buttons,Master Controller,Pin 31,Pin 31,GPIO6,B8 / joystick right button,LEFT movement,Active-low GPIO input with internal pull-up.
+Master controller buttons,Master Controller,Pin 32,Pin 32,GPIO12,B1 green button,Start / Play again,Used to start the game or play again from the result screen.
+Master controller buttons,Master Controller,Pin 35,Pin 35,GPIO19,B3 white button,Reset / Result,Used for reset or switching to the result screen.
+Master controller buttons,Master Controller,Pin 36,Pin 36,GPIO16,B4 yellow button,Enter / next field,Used in the virtual keyboard.
+Master controller buttons,Master Controller,Pin 37,Pin 37,GPIO26,B5 blue button,Select character,B5 is used instead of B6 because Button 4-5 have a clear shared ground.
+Master controller buttons,Master Controller,Pin 39,Pin 39,GND,Ground Button 4-5,Common ground,Ground for B4 yellow and B5 blue.
+Master controller ADC / I2C,Master Controller,Pin 1,Pin 1,3V3,3.3 V supply,ADC and joystick supply,Supply for ADC and joystick circuit.
+Master controller ADC / I2C,Master Controller,Pin 3,Pin 3,GPIO2 / SDA,I2C SDA,ADC data line,Used for ADS1115 I2C communication.
+Master controller ADC / I2C,Master Controller,Pin 5,Pin 5,GPIO3 / SCL,I2C SCL,ADC clock line,Used for ADS1115 I2C communication.
+Master controller ADC / I2C,Master Controller,Pin 6,Pin 6,GND,ADC / joystick GND,Ground,Ground for ADC and joystick circuit.
+Master controller ADC / I2C,Master Controller,Pin 27,GND,GND,ADC ADDR,I2C address selection,ADDR connected to GND gives ADS1115 address 0x48.
+Master LCD display,3.5 inch SPI LCD,VCC / 5V,Pin 2 or Pin 4,5V,LCD power,Power supply,Typical 3.5 inch SPI LCD HAT uses Raspberry Pi 5 V.
+Master LCD display,3.5 inch SPI LCD,GND,Pin 6 / 9 / 14 / 20 / 25 / 30 / 34 / 39,GND,LCD ground,Common ground,At least one GND is connected through the HAT/header.
+Master LCD display,3.5 inch SPI LCD,MOSI / DIN,Pin 19,GPIO10 / SPI0 MOSI,SPI MOSI,Pixel data to LCD,Used by SPI LCD driver.
+Master LCD display,3.5 inch SPI LCD,MISO / DOUT,Pin 21,GPIO9 / SPI0 MISO,SPI MISO,Optional return data / touch,May be used by touch controller; not required for LCD-only output.
+Master LCD display,3.5 inch SPI LCD,SCLK / CLK,Pin 23,GPIO11 / SPI0 SCLK,SPI clock,LCD SPI clock,Used by SPI LCD driver.
+Master LCD display,3.5 inch SPI LCD,CS / CE0,Pin 24,GPIO8 / SPI0 CE0,LCD chip select,Selects LCD on SPI bus,Common waveshare35a-compatible mapping.
+Master LCD display,3.5 inch SPI LCD,CE1 / Touch CS,Pin 26,GPIO7 / SPI0 CE1,Touch chip select,Optional touch controller,Only relevant if touch is used.
+Master LCD display,3.5 inch SPI LCD,DC / RS,Pin 22,GPIO25,Data / command,LCD command mode selection,Common waveshare35a-compatible mapping.
+Master LCD display,3.5 inch SPI LCD,RST / RESET,Pin 13,GPIO27,LCD reset,Resets LCD controller,Common waveshare35a-compatible mapping.
+Master LCD display,3.5 inch SPI LCD,BL / LED,Pin 12,GPIO18,Backlight,LCD backlight control,Some modules tie backlight directly to power.
+Client controller,Client Controller,Pin 29,Pin 29,GPIO5,Client direction button,DOWN movement,Client sends DOWN command to Master via UDP.
+Client controller,Client Controller,Pin 31,Pin 31,GPIO6,Client direction button,RIGHT movement,Client sends RIGHT command to Master via UDP.
+Client controller,Client Controller,Pin 1,Pin 1,3V3,3.3 V supply,ADC and joystick supply,Supply for ADC and joystick circuit.
+Client controller,Client Controller,Pin 3,Pin 3,GPIO2 / SDA,I2C SDA,ADC data line,Used for ADS1115 I2C communication.
+Client controller,Client Controller,Pin 5,Pin 5,GPIO3 / SCL,I2C SCL,ADC clock line,Used for ADS1115 I2C communication.
+Client controller,Client Controller,Pin 6,Pin 6,GND,ADC / joystick GND,Ground,Ground for ADC and joystick circuit.
+Client controller,Client Controller,Pin 27,GND,GND,ADC ADDR,I2C address selection,ADDR connected to GND gives ADS1115 address 0x48.
+Network communication,Master Raspberry Pi,Wi-Fi / WLAN,Network interface,N/A,UDP port 5005,Receives Client commands,Master listens for movement and status messages.
+Network communication,Client Raspberry Pi,Wi-Fi / WLAN,Network interface,N/A,UDP port 5006,Receives Master response,Client communicates with Master over Wi-Fi/WLAN.
